@@ -37,8 +37,8 @@ def main():
 
     with NamedTemporaryFile(dir='.', suffix='.pdf') as f:
         f.write(uploaded_file.getbuffer())
-    doc_manager = DocumentManager()
-    sections = doc_manager.split_documents(document_path=uploaded_file)
+        doc_manager = DocumentManager()
+        sections = doc_manager.split_documents(document_path=f.name)
     # Creation and persistence of embeddings
     embed_manager = EmbeddingManager(sections)
     embed_manager.create_and_persist_embeddings()
